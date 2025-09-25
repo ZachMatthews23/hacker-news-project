@@ -13,7 +13,7 @@ export interface WeatherForecast {
   providedIn: 'root'
 })
 export class WeatherService {
-  private apiUrl = 'https://localhost:7002'; // Default HTTPS port for .NET Core API
+  private apiUrl = 'http://localhost:5040'; // Backend API URL
 
   constructor(private http: HttpClient) { }
 
