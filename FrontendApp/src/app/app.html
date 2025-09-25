@@ -1,0 +1,39 @@
+<div class="app-container">
+  <header>
+    <h1>{{ title() }} - Weather Dashboard</h1>
+    <p>Angular Frontend with C# .NET Core Backend</p>
+  </header>
+
+  <main>
+    <div class="weather-section">
+      <h2>Weather Forecast</h2>
+      
+      @if (loading()) {
+        <div class="loading">Loading weather data...</div>
+      } @else if (error()) {
+        <div class="error">
+          <p>{{ error() }}</p>
+          <button (click)="loadWeatherData()" class="retry-btn">Retry</button>
+        </div>
+      } @else if (weatherData().length > 0) {
+        <div class="weather-grid">
+          @for (weather of weatherData(); track weather.date) {
+            <div class="weather-card">
+              <h3>{{ weather.date | date:'shortDate' }}</h3>
+              <p class="temperature">{{ weather.temperatureC }}°C / {{ weather.temperatureF }}°F</p>
+              <p class="summary">{{ weather.summary }}</p>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="no-data">No weather data available</div>
+      }
+      
+      <button (click)="loadWeatherData()" class="refresh-btn" [disabled]="loading()">
+        Refresh Weather Data
+      </button>
+    </div>
+  </main>
+</div>
+
+<router-outlet />
