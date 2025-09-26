@@ -9,7 +9,7 @@ Nextech coding challenge.
 
 ### Run locally
 
-1. `cd Backend`
+1. `cd Backend/HackerNewsApi`
 2. Restore dependencies on first run: `dotnet restore`
 3. Start the API: `dotnet run`
 
