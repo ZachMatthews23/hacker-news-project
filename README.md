@@ -1,6 +1,6 @@
-# nextech-interview-assessment
+# Hacker News Project
 
-Nextech coding challenge featuring an Angular 20 frontend and a .NET 8 Web API that displays curated Hacker News stories.
+Coding challenge featuring an Angular 20 frontend and a .NET 8 Web API that displays curated Hacker News stories.
 
 ## Project Layout
 
