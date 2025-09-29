@@ -7,14 +7,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add HTTP client
-builder.Services.AddHttpClient<IHackerNewsService, HackerNewsService>();
+// Add HTTP client & service via dependency injection
+builder.Services
+    .AddHttpClient<IHackerNewsService, HackerNewsService>(client =>
+    {
+        client.BaseAddress = new Uri("https://hacker-news.firebaseio.com/v0/");
+        client.Timeout = TimeSpan.FromSeconds(15);
+    })
+    .SetHandlerLifetime(TimeSpan.FromMinutes(5));
 
 // Add memory cache
 builder.Services.AddMemoryCache();
-
-// Add dependency injection
-builder.Services.AddScoped<IHackerNewsService, HackerNewsService>();
 
 // Add CORS for Angular app
 builder.Services.AddCors(options =>
@@ -43,3 +46,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }
