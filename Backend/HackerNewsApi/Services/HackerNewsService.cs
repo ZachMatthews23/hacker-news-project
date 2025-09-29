@@ -31,15 +31,9 @@ namespace HackerNewsApi.Services
         var skip = (page - 1) * pageSize;
         var pagedIds = storyIds.Skip(skip).Take(pageSize);
 
-        var stories = new List<HackerNewsItem>();
-        foreach (var id in pagedIds)
-        {
-          var story = await GetStoryByIdAsync(id);
-          if (story != null)
-          {
-            stories.Add(story);
-          }
-        }
+        var storyTasks = pagedIds.Select(id => GetStoryByIdAsync(id));
+        var storyResults = await Task.WhenAll(storyTasks);
+        var stories = storyResults.Where(story => story != null).ToList();
 
         return new StoriesResponse
         {
