@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/9f5ccfcc-e678-45c9-817d-838b547ec336/resourceGroups/appsvc_windows_westcentralus/providers/Microsoft.Web/sites/hacker-news-project-api",
+  "appService.deploySubpath": "Backend/HackerNewsApi"
+}

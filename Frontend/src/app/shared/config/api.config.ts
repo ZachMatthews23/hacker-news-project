@@ -1,5 +1,7 @@
+import { environment } from '../../../environments/environment';
+
 export const API_CONFIG = {
-  baseUrl: 'http://localhost:5163/api',
+  baseUrl: environment.apiUrl,
   endpoints: {
     hackernews: {
       newest: '/hackernews/newest',
