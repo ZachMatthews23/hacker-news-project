@@ -1,16 +1,137 @@
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
+:host {
+  display: block;
 }
 
-.error {
-  color: #d32f2f;
+.app-shell {
+  min-height: 100vh;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  color: #0f172a;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(236, 72, 153, 0.12));
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: -40% -20% 35%;
+  background: radial-gradient(circle at center, rgba(147, 197, 253, 0.45) 0%, rgba(147, 197, 253, 0) 65%);
+  opacity: 0.7;
+  pointer-events: none;
+  transform: rotate(18deg);
+}
+
+.hero__text {
+  max-width: min(38rem, 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero__tagline {
+  margin: 0;
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+  color: rgba(15, 23, 42, 0.78);
+}
+
+.hero form {
+  align-items: center;
+  display: flex;
+}
+
+.hero input {
+  margin-right: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #fff;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.hero input:focus {
+  outline: none;
+  border-color: #8fa7f4;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.hero button {
+  position: relative;
+  z-index: 1;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.9rem;
   font-weight: 500;
 }
 
+.status--loading {
+  align-self: center;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.45);
+}
+
+.status--error {
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(254, 226, 226, 0.65);
+}
+
+.status--empty {
+  align-self: center;
+  margin: 0;
+  background: rgba(236, 72, 153, 0.08);
+  color: rgba(111, 47, 160, 0.9);
+}
+
 button[disabled] {
-  opacity: 0.6;
+  opacity: 0.65;
   cursor: not-allowed;
+}
+
+mat-paginator {
+  align-self: center;
+  margin-top: 2rem;
+  background: transparent;
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding: 1.75rem 1.25rem 3rem;
+  }
+
+  .hero {
+    padding: 1.5rem;
+  }
 }

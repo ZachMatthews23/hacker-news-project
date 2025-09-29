@@ -43,22 +43,5 @@ namespace HackerNewsApi.Controllers
       var result = await _hackerNewsService.SearchStoriesAsync(query, page, pageSize);
       return Ok(result);
     }
-
-    [HttpGet("story/{id}")]
-    public async Task<ActionResult<HackerNewsItem>> GetStory(int id)
-    {
-      if (id <= 0)
-      {
-        return BadRequest("Invalid story ID");
-      }
-
-      var story = await _hackerNewsService.GetStoryByIdAsync(id);
-      if (story == null)
-      {
-        return NotFound();
-      }
-
-      return Ok(story);
-    }
   }
 }
