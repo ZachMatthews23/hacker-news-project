@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp",
         builder =>
         {
-            builder.WithOrigins("http://localhost:4200") // Angular dev server
+            builder.WithOrigins("https://purple-bay-07cebe21e.1.azurestaticapps.net", "http://localhost:4200") // Angular dev server
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
