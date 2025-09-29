@@ -21,7 +21,7 @@ Nextech coding challenge featuring an Angular 20 frontend and a .NET 8 Web API t
 
 > Run the scripts from the repository root in separate terminals so the dev servers stay alive. Press `Ctrl+C` in each terminal to stop.
 
-### Manual steps (if you prefer)
+### Manual steps
 
 - Backend: `cd Backend/HackerNewsApi`, `dotnet restore`, then `dotnet watch run` (or `dotnet run`).
 - Frontend: `cd Frontend`, `npm install`, then `npm start` and open `http://localhost:4200`.
