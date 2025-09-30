@@ -19,13 +19,16 @@ builder.Services
 // Add memory cache
 builder.Services.AddMemoryCache();
 
-// Add CORS for Angular app
+// Add CORS for Angular app and Static Web Apps
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp",
         builder =>
         {
-            builder.WithOrigins("http://localhost:4200") // Angular dev server
+            builder.WithOrigins(
+                "http://localhost:4200", // Angular dev server
+                "https://proud-hill-0beb36d10.1.azurestaticapps.net" // Static Web App
+            )
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
