@@ -26,8 +26,7 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder.WithOrigins(
-                "http://localhost:4200", // Angular dev server
-                "https://proud-hill-0beb36d10.1.azurestaticapps.net" // Static Web App
+                "http://localhost:4200"
             )
                    .AllowAnyHeader()
                    .AllowAnyMethod();
