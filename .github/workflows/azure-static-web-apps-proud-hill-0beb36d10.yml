@@ -30,8 +30,8 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "./Frontend" # App source code path
           api_location: "./api" # Api source code path (Azure Functions)
-          api_build_command: "dotnet publish -c Release" # Ensure functions are compiled before upload
-          api_output_location: "bin/Release/net8.0/publish" # Published functions artifact directory
+          api_build_command: "dotnet build -c Release" # Build the Functions project
+          api_output_location: "" # Leave empty for Azure Functions - auto-detected
           output_location: "dist/frontend/browser" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
