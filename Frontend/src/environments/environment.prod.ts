@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: '/api' // Use Static Web Apps API proxy after linking
+  apiUrl: 'https://hacker-news-project-api-ashcdcddbpbbdzb6.westcentralus-01.azurewebsites.net/api' // Direct App Service URL
 };
