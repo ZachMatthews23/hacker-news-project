@@ -1,5 +1,7 @@
 # Hacker News Project
 
+Deployed app: https://zealous-mushroom-0b854c80f.1.azurestaticapps.net/
+
 Coding challenge featuring an Angular 20 frontend and a .NET 8 Web API that displays curated Hacker News stories.
 
 ## Project Layout
